@@ -1,13 +1,14 @@
 { ... }:
 
 {
-  nix.settings = {
-    substituters = [
-      # For Affinity (https://github.com/mrshmllow/affinity-nix)
-      "https://cache.forall.systems"
-    ];
-    trusted-public-keys = [
-      "cache.forall.systems:5PmD7QO4MSF8YgyRZtkSGXRDo96H3bybIf2SsQh8ScI="
-    ];
-  };
+  # Disabled as it's causing problems fetching packages
+  # nix.settings = {
+  #   substituters = [
+  #     # For Affinity (https://github.com/mrshmllow/affinity-nix)
+  #     "https://cache.forall.systems"
+  #   ];
+  #   trusted-public-keys = [
+  #     "cache.forall.systems:5PmD7QO4MSF8YgyRZtkSGXRDo96H3bybIf2SsQh8ScI="
+  #   ];
+  # };
 }
