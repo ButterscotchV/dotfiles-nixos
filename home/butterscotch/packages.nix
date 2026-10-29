@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgsStable,
   pkgsErosanix,
   pkgsLocal,
   ...
@@ -40,8 +39,7 @@ in
     # === Media ===
     ab-av1
     ffmpeg
-    # https://github.com/NixOS/nixpkgs/pull/576407
-    pkgsStable.handbrake
+    handbrake
     haruna
     kdePackages.kamoso
     kdePackages.kdenlive
