@@ -5,18 +5,22 @@
 }:
 
 let
+  fusermountCompat = pkgs.writeShellScriptBin "fusermount" ''
+    exec /run/wrappers/bin/fusermount3 "$@"
+  '';
+
   xwintab = pkgs.callPackage ./xwintab { };
 in
 {
   aternos-thanos = pkgs.callPackage ./aternos-thanos { };
 
   rebelle = pkgs.callPackage ./rebelle {
-    inherit xwintab libErosanix;
+    inherit xwintab libErosanix fusermountCompat;
     wine = pkgs.wineWow64Packages.staging;
   };
 
   pinga = pkgs.callPackage ./pinga {
-    inherit libErosanix;
+    inherit libErosanix fusermountCompat;
     wine = pkgs.wineWow64Packages.stable;
   };
 

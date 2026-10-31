@@ -1,6 +1,7 @@
 {
   lib,
   libErosanix,
+  fusermountCompat,
   wine,
   fetchzip,
   makeDesktopItem,
@@ -37,6 +38,10 @@ libErosanix.mkWindowsAppNoCC rec {
   nativeBuildInputs = [
     copyDesktopItems
     libErosanix.copyDesktopIcons
+  ];
+
+  buildInputs = [
+    fusermountCompat
   ];
 
   # This code will become part of the launcher script.
