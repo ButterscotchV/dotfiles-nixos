@@ -1,0 +1,4 @@
+[Thumbnailer Entry]
+TryExec=@THUMBNAILER@
+Exec=@THUMBNAILER@ %i %o %s
+MimeType=application/x-rebelle;application/x-wine-extension-reb;

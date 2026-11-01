@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsLocal, ... }:
 
 {
   imports = [
@@ -27,6 +27,7 @@
 
   environment.systemPackages = with pkgs; [
     bitwarden-desktop
+    pkgsLocal.rebelle-thumbnailer
   ];
 
   # Macro software
