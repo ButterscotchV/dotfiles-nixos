@@ -11,11 +11,11 @@ libErosanix.mkWindowsAppNoCC rec {
   inherit wine;
 
   pname = "pinga";
-  version = "0.67";
+  version = "1.00";
 
   src = fetchzip {
     url = "https://css-ig.net/bin/pinga.zip";
-    sha256 = "sha256-IzwzgSAtF5Qc7dtWekLFJb8I40BuJfhVhrslQrrAQHs=";
+    sha256 = "sha256-xVXIZfKf2S4HZpu9w9lY3z6S90YqOv1olc1NNGgwtWI=";
   };
 
   # By default, when a Wine prefix is first created Wine will produce a warning prompt if Mono is not installed.
