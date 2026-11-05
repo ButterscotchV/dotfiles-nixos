@@ -87,6 +87,7 @@ in
 
     # === Development ===
     git-credential-manager
+    git-lfs
     github-desktop
     jetbrains.idea
     jq # JSON processor

@@ -25,7 +25,11 @@
   # Some default programs and settings.
   programs.git = {
     enable = true;
-    lfs.enable = true;
+    lfs = {
+      enable = true;
+      # Manually installed to work around GitHub Desktop warning
+      package = null;
+    };
     settings = {
       user = {
         name = "Butterscotch!";
