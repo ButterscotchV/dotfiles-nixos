@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgsFast,
   pkgsErosanix,
   pkgsLocal,
   ...
@@ -99,7 +100,8 @@ in
 
     # === Gaming ===
     moonlight-qt
-    owmods-gui
+    # https://github.com/NixOS/nixpkgs/issues/570938
+    pkgsFast.owmods-gui
     pkgsLocal.aternos-thanos # Trim Minecraft worlds
     prismlauncher-custom
     r2modman

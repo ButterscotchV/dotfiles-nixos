@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgsFast,
   ...
 }:
 
@@ -12,7 +13,8 @@
     wayvr
 
     # === VRChat ===
-    alcom
+    # https://github.com/NixOS/nixpkgs/issues/570938
+    pkgsFast.alcom
     unityhub
     vrcx
   ];
