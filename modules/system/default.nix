@@ -18,9 +18,7 @@
   # Configure allowed Nix packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.segger-jlink.acceptLicense = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-39.8.10"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ ];
 
   # Firmware
   hardware.enableAllFirmware = true;
