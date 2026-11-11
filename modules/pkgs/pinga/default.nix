@@ -15,7 +15,7 @@ libErosanix.mkWindowsAppNoCC rec {
 
   src = fetchzip {
     url = "https://css-ig.net/bin/pinga.zip";
-    sha256 = "sha256-xVXIZfKf2S4HZpu9w9lY3z6S90YqOv1olc1NNGgwtWI=";
+    sha256 = "sha256-IB3Xctk0+J2Ct3IdMBsd52wM2N7MhbgFPdxi5x/R9tE=";
   };
 
   # By default, when a Wine prefix is first created Wine will produce a warning prompt if Mono is not installed.
