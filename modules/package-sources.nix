@@ -8,6 +8,7 @@ in
     pkgsStable = import inputs.nixpkgs-stable {
       inherit system;
       config.allowUnfree = true;
+      config.segger-jlink.acceptLicense = true;
     };
     pkgsFast = import inputs.nixpkgs-fast {
       inherit system;
