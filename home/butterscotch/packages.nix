@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgsStable,
   pkgsErosanix,
   pkgsLocal,
   ...
@@ -95,7 +94,8 @@ in
     nixd # Nix language server
     nixdoc
     nixfmt
-    pkgsStable.nrfconnect
+    # https://github.com/NixOS/nixpkgs/issues/580434
+    # nrfconnect
 
     # === Gaming ===
     moonlight-qt
