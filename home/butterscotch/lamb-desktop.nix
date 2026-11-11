@@ -1,14 +1,12 @@
 {
   pkgs,
-  pkgsStable,
   ...
 }:
 
 {
   home.packages = with pkgs; [
     # === File management/sync ===
-    # https://github.com/NixOS/nixpkgs/issues/576779
-    pkgsStable.insync
+    insync
 
     # === VR ===
     wayvr
