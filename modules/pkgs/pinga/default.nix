@@ -31,7 +31,7 @@ libErosanix.mkWindowsAppNoCC rec {
   # To figure out what needs to be persisted, take at look at $(dirname $WINEPREFIX)/upper,
   # while the app is running.
   fileMap = {
-    "$HOME/.config/pinga.ini" = "drive_c/users/$USER/AppData/Local/pinga.ini";
+    "$HOME/.config/pinga/pinga.ini" = "drive_c/users/$USER/AppData/Roaming/pinga/pinga.ini";
   };
 
   nativeBuildInputs = [
