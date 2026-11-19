@@ -6,17 +6,19 @@
   makeDesktopItem,
   copyDesktopItems,
   xwintab,
+  sourceVersion,
+  hash,
 }:
 
 libErosanix.mkWindowsAppNoCC rec {
   inherit wine;
 
   pname = "rebelle";
-  version = "7.2.8";
+  version = with sourceVersion; "${major}.${minor}.${patch}${suffix}";
 
   src = fetchurl {
     url = "https://escapemotions1.b-cdn.net/products/rebelle/update/downloads/Rebelle_v${version}_Windows_64bit.exe";
-    sha256 = "sha256-hfuhaHZhITNWpurAhVOREE/EXZAzSLLHLK6P61BCT6c=";
+    inherit hash;
   };
 
   # By default, when a Wine prefix is first created Wine will produce a warning prompt if Mono is not installed.
@@ -31,8 +33,9 @@ libErosanix.mkWindowsAppNoCC rec {
   # But note that you must ommit $WINEPREFIX from the path.
   # To figure out what needs to be persisted, take at look at $(dirname $WINEPREFIX)/upper,
   # while the app is running.
-  fileMap = {
-    "$HOME/.config/${pname}" = "drive_c/users/$USER/AppData/Local/Escape Motions/Rebelle 7";
+  fileMap = with sourceVersion; {
+    "$HOME/.config/${pname}${major}" =
+      "drive_c/users/$USER/AppData/Local/Escape Motions/Rebelle ${major}";
   };
 
   nativeBuildInputs = [
@@ -70,9 +73,9 @@ libErosanix.mkWindowsAppNoCC rec {
   # and wine, winetricks, and cabextract are in the environment.
   # Command line arguments are in $ARGS, not $@
   # DO NOT BLOCK. For example, don't run: wineserver -w
-  winAppRun = ''
+  winAppRun = with sourceVersion; ''
     export WINEDLLOVERRIDES="wintab32=n,b;$WINEDLLOVERRIDES"
-    $WINE "$WINEPREFIX/drive_c/Program Files/Rebelle 7/Rebelle 7.exe" "$ARGS"
+    $WINE "$WINEPREFIX/drive_c/Program Files/Rebelle ${major}/Rebelle ${major}.exe" "$ARGS"
   '';
 
   # This code will run after winAppRun, but only for the first instance.
@@ -84,10 +87,10 @@ libErosanix.mkWindowsAppNoCC rec {
   # This is a normal mkDerivation installPhase, with some caveats.
   # The launcher script will be installed at $out/bin/.launcher
   # DO NOT DELETE OR RENAME the launcher. Instead, link to it as shown.
-  installPhase = ''
+  installPhase = with sourceVersion; ''
     runHook preInstall
     OLD_LAUNCHER=$out/bin/.launcher
-    NEW_LAUNCHER=$out/bin/${pname}
+    NEW_LAUNCHER=$out/bin/${pname}${major}
     # Correct `MY_PATH` in launcher script
     substituteInPlace $OLD_LAUNCHER \
       --replace-fail $OLD_LAUNCHER $NEW_LAUNCHER
@@ -95,21 +98,23 @@ libErosanix.mkWindowsAppNoCC rec {
     runHook postInstall
   '';
 
-  desktopItems = [
+  desktopItems = with sourceVersion; [
     (makeDesktopItem {
-      name = pname;
-      exec = pname;
-      icon = pname;
-      desktopName = "Rebelle 7";
+      name = "${pname}${major}";
+      exec = "${pname}${major}";
+      icon = "${pname}${major}";
+      desktopName = "Rebelle ${major}";
       genericName = "Digital Painting";
       categories = [ "Graphics" ];
     })
   ];
 
-  desktopIcon = libErosanix.makeDesktopIcon {
-    name = pname;
-    src = ./Rebelle_7.png;
-  };
+  desktopIcon =
+    with sourceVersion;
+    libErosanix.makeDesktopIcon {
+      name = "${pname}${major}";
+      src = ./Rebelle.png;
+    };
 
   meta = with lib; {
     description = "Real media paint software for digital painting, with simulation of real-world color mixing, blending, wet-diffusion and drying.";

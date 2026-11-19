@@ -65,7 +65,8 @@ in
     krita
     pkgsLocal.pinga
     pkgsLocal.pingo
-    pkgsLocal.rebelle
+    pkgsLocal.rebelle7
+    pkgsLocal.rebelle8
 
     # === CD ripping ===
     kdePackages.audiocd-kio

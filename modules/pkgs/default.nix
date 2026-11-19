@@ -10,9 +10,28 @@ in
 {
   aternos-thanos = pkgs.callPackage ./aternos-thanos { };
 
-  rebelle = pkgs.callPackage ./rebelle {
+  rebelle7 = pkgs.callPackage ./rebelle {
     inherit xwintab libErosanix;
     wine = pkgs.wineWow64Packages.staging;
+    sourceVersion = {
+      major = "7";
+      minor = "2";
+      patch = "8";
+      suffix = "";
+    };
+    hash = "sha256-hfuhaHZhITNWpurAhVOREE/EXZAzSLLHLK6P61BCT6c=";
+  };
+
+  rebelle8 = pkgs.callPackage ./rebelle {
+    inherit xwintab libErosanix;
+    wine = pkgs.wineWow64Packages.staging;
+    sourceVersion = {
+      major = "8";
+      minor = "4";
+      patch = "0";
+      suffix = "";
+    };
+    hash = "sha256-ETMZXIdZFK0PAyFQDRVvskWzY+lyx5R9uqU/IgpVeNk=";
   };
 
   rebelle-thumbnailer = pkgs.callPackage ./rebelle-thumbnailer { };
