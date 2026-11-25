@@ -4,11 +4,12 @@
   # Configure grub
   boot.loader = {
     efi = {
-      canTouchEfiVariables = true;
+      canTouchEfiVariables = false;
     };
     grub = {
       enable = true;
       efiSupport = true;
+      efiInstallAsRemovable = true;
       device = "nodev";
       useOSProber = true;
       default = "saved";
