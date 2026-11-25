@@ -6,9 +6,6 @@
 
 {
   home.packages = with pkgs; [
-    # === File management/sync ===
-    insync
-
     # === VR ===
     wayvr
 

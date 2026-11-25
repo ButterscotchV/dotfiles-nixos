@@ -87,6 +87,9 @@ in
     kdePackages.plasma-sdk
     nerd-fonts.fira-code
 
+    # === File management/sync ===
+    insync
+
     # === Development ===
     git-credential-manager
     git-lfs
