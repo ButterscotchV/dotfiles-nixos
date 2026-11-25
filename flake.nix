@@ -76,7 +76,7 @@
                 sharedModules = [ plasma-manager.homeModules.plasma-manager ];
               };
             }
-            lenovo-ideapad-s145-15api
+            framework-16-7040-amd
           ];
         };
 
