@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -63,4 +63,7 @@
 
   # Enable NTSync for WINE
   boot.kernelModules = [ "ntsync" ];
+
+  # Thunderbolt
+  services.hardware.bolt.enable = true;
 }

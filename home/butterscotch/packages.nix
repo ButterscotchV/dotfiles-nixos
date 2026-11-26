@@ -117,6 +117,7 @@ in
     # === PC monitoring/management ===
     kdePackages.filelight
     kdePackages.ksystemlog
+    kdePackages.plasma-thunderbolt
     mission-center
     nix-tree
     pkgsErosanix.mkwindowsapp-tools
