@@ -17,7 +17,10 @@
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
-    "sdhci_pci"
+    "thunderbolt"
+    "uas"
+    "usbhid"
+    "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
@@ -37,7 +40,9 @@
     ];
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/3ced0f73-1ee3-4bbf-8d55-71d6328907d0"; } ];
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/3ced0f73-1ee3-4bbf-8d55-71d6328907d0"; }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
