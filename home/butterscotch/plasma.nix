@@ -1,5 +1,16 @@
 { ... }:
 
+let
+  butterscotch-wallpapers-package = builtins.path {
+    path = ../../displays/wallpapers;
+    name = "butterscotch-wallpapers";
+    sha256 = "sha256-l5EPES0xu54ZiWm0dxwB793oNTL3b1l1j+CdrgZb2eM=";
+  };
+  wallpapers = [
+    "${butterscotch-wallpapers-package}/1.png"
+    "${butterscotch-wallpapers-package}/2.png"
+  ];
+in
 {
   programs.plasma = {
     enable = true;
@@ -84,10 +95,9 @@
 
     workspace = {
       lookAndFeel = "org.kde.breezedark.desktop";
-      wallpaper = [
-        ../../displays/wallpapers/1.png
-        ../../displays/wallpapers/2.png
-      ];
+      wallpaper = wallpapers;
     };
+
+    kscreenlocker.appearance.wallpaper = builtins.head wallpapers;
   };
 }
