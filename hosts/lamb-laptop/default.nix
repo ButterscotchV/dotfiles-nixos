@@ -7,6 +7,7 @@
     ../../modules/system
     ../../modules/user
     ../../modules/user/cache/lamb-laptop.nix
+    ../../modules/user/gaming/slimevr.nix
   ];
 
   # Hostname for this system
