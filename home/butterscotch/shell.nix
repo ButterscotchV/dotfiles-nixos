@@ -48,5 +48,8 @@
 
       # Run IntelliJ IDEA in the background
       idea-bg = "nohup intellij-idea . >/dev/null 2>&1 &";
+
+      # Plasma-Manager
+      plasma-reload = "${config.xdg.dataHome}/plasma-manager/run_all.sh";
     };
 }
