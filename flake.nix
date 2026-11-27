@@ -77,6 +77,8 @@
               };
             }
             framework-16-7040-amd
+            "${nixos-hardware}/common/gpu/nvidia/ampere"
+            common-gpu-nvidia-sync
           ];
         };
 

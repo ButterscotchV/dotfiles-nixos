@@ -12,6 +12,11 @@
   # Hostname for this system
   networking.hostName = "lamb-laptop";
 
+  hardware.nvidia.prime = {
+    nvidiaBusId = "PCI:99@0:0:0";
+    amdgpuBusId = "PCI:192@0:0:0";
+  };
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
